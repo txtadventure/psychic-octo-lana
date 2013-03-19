@@ -6,8 +6,9 @@ class Item
 {
     public:
         Item();
-    protected:
+        int getIndex(){return index;}
     private:
+        int index;
 };
 
 #endif // ITEM_H

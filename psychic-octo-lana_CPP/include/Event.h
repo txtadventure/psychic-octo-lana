@@ -6,8 +6,8 @@ class Event
 {
     public:
         Event();
-    protected:
     private:
+        Condition* condition;
 };
 
 #endif // EVENT_H
