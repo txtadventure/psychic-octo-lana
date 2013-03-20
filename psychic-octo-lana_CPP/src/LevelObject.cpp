@@ -1,6 +1,3 @@
 #include "LevelObject.h"
 
-LevelObject::LevelObject()
-{
-    //ctor
-}
+void LevelObject::startDialog(){}

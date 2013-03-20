@@ -3,9 +3,9 @@
 
 #include <functional>
 
-#include "LevelObject.h"
-
 using namespace std;
+
+class LevelObject;
 
 class Dialog
 {

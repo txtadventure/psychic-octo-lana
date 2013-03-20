@@ -2,6 +2,8 @@
 #include <iostream>
 #include <windows.h>
 
+#include "Player.h"
+
 using namespace std;
 
 const char* Tools::HOR_BAR = "-------------------------------------------------------------------------------";
@@ -24,6 +26,16 @@ void Tools::printMsg(const string& msg, const Player* p){
     cout << "Item2: " << p->getItem1() << "\t\t";
     cout << "Item3: " << p->getItem1() << "\t\t" << endl;
     cout << HOR_BAR << endl;
+}
+
+int Tools::printChoice(const string& msg, const Player* p){
+    return 1;
+}
+char* Tools::printInput(const string& msg, const Player* p){
+    return "fuuuuuuuuuu";
+}
+bool Tools::printQuestion(const string& msg, const Player* p){
+    return false;
 }
 
 void Tools::printMsgSlow(const string& msg){

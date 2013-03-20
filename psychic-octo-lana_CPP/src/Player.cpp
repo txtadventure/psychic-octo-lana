@@ -9,3 +9,5 @@ Player::Player()
     item2 = 0;
     item3 = 0;
 }
+
+
