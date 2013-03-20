@@ -4,8 +4,7 @@
 
 using namespace std;
 
-const char* HOR_BAR = "-------------------------------------------------------------------------------";
-const int charTime = 5;
+
 
 void Tools::printMsg(const string& msg, const Player* p){
     //Status bar

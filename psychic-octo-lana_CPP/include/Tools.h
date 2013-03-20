@@ -9,9 +9,10 @@ using namespace std;
 class Tools
 {
     public:
+        static const char* HOR_BAR = "-------------------------------------------------------------------------------";
         static void printMsg(const string& msg, const Player* p);
-    protected:
     private:
+        static const int charTime = 5;
         static void printMsgSlow(const string& msg);
 };
 
