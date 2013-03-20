@@ -17,4 +17,5 @@
 
 # Other
 *.layout
+*.depend
 
