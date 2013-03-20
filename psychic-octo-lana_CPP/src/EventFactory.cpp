@@ -14,7 +14,7 @@ Event* EventFactory::produceEvent(int eventID)
                                 Dialog* dia = new Dialog(evt);
                                 dia->setRunFunc(
                                                 [&dia](){
-                                                    Game::instance()->printMsg("Welcome to your firs Event!");
+                                                    Game::instance()->printMsg("Welcome to your first Event!");
                                                 }
                                                 );
                                 evt->setCondition(cond);

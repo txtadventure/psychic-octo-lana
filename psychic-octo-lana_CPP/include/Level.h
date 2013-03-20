@@ -10,9 +10,9 @@ using namespace std;
 class Level
 {
     public:
-        Level(char* _name, vector<LevelObject>* _levelObjects, vector<Event>* _events, Condition* _levelCondition);
+        Level(char* _name, vector<LevelObject>* _levelObjects, vector<Event*>* _events, Condition* _levelCondition);
         vector<LevelObject>* getLevelObjects(){return levelObjects;}
-        vector<Event>* getEvents(){return events;}
+        vector<Event*>* getEvents(){return events;}
         vector<Level>* getNeighbourLevels(){return neighbourLevels;}
         void addNeighbourLevel(Level* neighbourLevel){neighbourLevels->push_back(*neighbourLevel);}
         //msg is the message returned if the level is not accessible
@@ -22,7 +22,7 @@ class Level
     private:
         char* name;
         vector<LevelObject>* levelObjects;
-        vector<Event>* events;
+        vector<Event*>* events;
         vector<Level>* neighbourLevels;
         Condition* levelCondition;
 };
