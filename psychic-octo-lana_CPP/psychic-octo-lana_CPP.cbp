@@ -35,18 +35,22 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="include/Condition.h" />
+		<Unit filename="include/Dialog.h" />
 		<Unit filename="include/Event.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Item.h" />
+		<Unit filename="include/ItemFactory.h" />
 		<Unit filename="include/Level.h" />
 		<Unit filename="include/LevelFactory.h" />
 		<Unit filename="include/LevelObject.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Tools.h" />
 		<Unit filename="src/Condition.cpp" />
+		<Unit filename="src/Dialog.cpp" />
 		<Unit filename="src/Event.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Item.cpp" />
+		<Unit filename="src/ItemFactory.cpp" />
 		<Unit filename="src/Level.cpp" />
 		<Unit filename="src/LevelFactory.cpp" />
 		<Unit filename="src/LevelObject.cpp" />
