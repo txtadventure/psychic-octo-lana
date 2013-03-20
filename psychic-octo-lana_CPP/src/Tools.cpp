@@ -29,7 +29,7 @@ void Tools::printMsg(const string& msg, const Player* p){
 void Tools::printMsgSlow(const string& msg){
     for(int i=0;i<msg.length();i++){
         cout << msg.at(i);
-        Sleep(charTime);
+        Sleep(CHAR_TIME);
     }
     cout << endl;
 }

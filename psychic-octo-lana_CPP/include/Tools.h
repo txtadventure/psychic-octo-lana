@@ -12,7 +12,7 @@ class Tools
         static const char* HOR_BAR = "-------------------------------------------------------------------------------";
         static void printMsg(const string& msg, const Player* p);
     private:
-        static const int charTime = 5;
+        static const int CHAR_TIME = 5;
         static void printMsgSlow(const string& msg);
 };
 
