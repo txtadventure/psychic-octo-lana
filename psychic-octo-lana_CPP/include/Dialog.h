@@ -7,7 +7,6 @@ class LevelObject;
 class Event;
 
 using namespace std;
-
 class Dialog
 {
 public:

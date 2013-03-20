@@ -9,13 +9,14 @@ class Event
     public:
         Event(int _eventID):eventID(_eventID){}
         bool trigger();
-        void startDialog();
+
         void setCondition(Condition* cond){condition = cond;}
         void setDialog(Dialog* dia){dialog = dia;}
     private:
         int eventID;
         Condition* condition;
         Dialog* dialog;
+        void startDialog();
 };
 
 #endif // EVENT_H

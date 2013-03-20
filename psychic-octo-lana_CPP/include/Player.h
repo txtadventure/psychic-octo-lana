@@ -20,6 +20,7 @@ class Player
         Item* getItem1() const {return item1;}
         Item* getItem2() const {return item2;}
         Item* getItem3() const {return item3;}
+        void setCurrentLevel(Level* newCurrentLevel){currentLevel = newCurrentLevel;}
     private:
         Level* currentLevel;
         Item* item1;

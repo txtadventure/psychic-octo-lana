@@ -14,8 +14,11 @@ using namespace std;
 class Game
 {
 public:
+		void gameOver();
         void printMsg(const string& msg){Tools::printMsg(msg, player);}
-        void gameOver();
+		int printChoice(const string& msg){return Tools::printChoice(msg, player);}
+        bool printQuestion(const string& msg){return Tools::printQuestion(msg, player);}
+        char* printInput(const string& msg){return Tools::printInput(msg, player);}
         static Game* instance ()
         {
             static CGuard g;   // memory management
