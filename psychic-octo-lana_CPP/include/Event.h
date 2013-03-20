@@ -7,9 +7,11 @@
 class Event
 {
     public:
-        Event(Condition* cond, Dialog* dia, int _eventID):condition(cond), dialog(dia), eventID(_eventID){}
+        Event(int _eventID):eventID(_eventID){}
         bool trigger();
         void startDialog();
+        void setCondition(Condition* cond){condition = cond;}
+        void setDialog(Dialog* dia){dialog = dia;}
     private:
         int eventID;
         Condition* condition;

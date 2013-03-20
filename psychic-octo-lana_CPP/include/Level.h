@@ -17,6 +17,7 @@ class Level
         void addNeighbourLevel(Level* neighbourLevel){neighbourLevels->push_back(*neighbourLevel);}
         //msg is the message returned if the level is not accessible
         bool accessible(string& msg);
+        char* getName(){return name;}
         void enter();
     private:
         char* name;

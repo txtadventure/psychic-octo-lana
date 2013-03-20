@@ -15,6 +15,7 @@ class Game
 {
 public:
         void printMsg(const string& msg){Tools::printMsg(msg, player);}
+        void gameOver();
         static Game* instance ()
         {
             static CGuard g;   // memory management

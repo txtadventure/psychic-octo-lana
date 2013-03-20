@@ -6,7 +6,7 @@
 class ItemFactory
 {
     public:
-        static const int ITEM1=0;
+        static const int ITEM1=1;
         static Item* produceItem(int itemID);
     private:
 };

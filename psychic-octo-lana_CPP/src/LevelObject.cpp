@@ -1,6 +1,8 @@
 #include "LevelObject.h"
 
-LevelObject::LevelObject()
-{
-    //ctor
+#include"Dialog.h"
+
+void LevelObject::startDialog(){
+    dialog->execute();
 }
+

@@ -1,6 +1,7 @@
 #include "Condition.h"
 #include "Game.h"
 #include "Player.h"
+#include "Item.h"
 
 Condition::Condition(vector<int>* _requiredItems, vector<int>* _requiredEvents, int _requiredMoney, int _requiredHP):
 requiredItems(_requiredItems), requiredEvents(_requiredEvents), requiredMoney(_requiredMoney), requiredHP(_requiredHP)
