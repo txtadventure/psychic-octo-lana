@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1363614253 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\event.cpp
+1363758092 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\event.cpp
 	"Event.h"
 
-1363739822 d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\include\event.h
+1363758305 d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\include\event.h
 	"Condition.h"
+	"Dialog.h"
 
 1363757427 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\game.cpp
 	"Game.h"
@@ -47,7 +48,7 @@
 	"Level.h"
 	"Item.h"
 
-1363631806 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\tools.cpp
+1363757601 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\tools.cpp
 	"Tools.h"
 	<iostream>
 	<windows.h>
@@ -66,7 +67,7 @@
 	<string>
 	<vector>
 
-1363733623 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\levelfactory.cpp
+1363758158 source:d:\programmierung\c++\psychic-octo-lana\psychic-octo-lana_cpp\src\levelfactory.cpp
 	"LevelFactory.h"
 	<vector>
 	"Event.h"
