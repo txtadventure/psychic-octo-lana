@@ -5,6 +5,8 @@
 
 #include "LevelObject.h"
 
+using namespace std;
+
 class Dialog
 {
 public:

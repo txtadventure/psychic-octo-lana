@@ -1,13 +1,7 @@
 #include "ItemFactory.h"
 
-ItemFactory::ItemFactory()
-{
-    //ctor
-}
-
-Item* ItemFactory::produceItem(int itemID)(){
+Item* ItemFactory::produceItem(int itemID){
     switch(itemID){
-    case ItemFactory::PENIS: return new Item(itemID, "Penis");break;
-    case ItemFactory::MAUS: return new Item(itemID, "Maus");break;
+    case ItemFactory::ITEM1: return new Item(itemID, "Item1");break;
     }
 }

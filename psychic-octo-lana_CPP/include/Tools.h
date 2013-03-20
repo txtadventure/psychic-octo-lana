@@ -9,7 +9,7 @@ using namespace std;
 class Tools
 {
     public:
-        static const char* HOR_BAR = "-------------------------------------------------------------------------------";
+        static const char* HOR_BAR;
         static void printMsg(const string& msg, const Player* p);
     private:
         static const int CHAR_TIME = 5;
