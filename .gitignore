@@ -15,3 +15,6 @@
 # Executable
 *.exe
 
+# Other
+*.layout
+
