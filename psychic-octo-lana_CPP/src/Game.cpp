@@ -10,8 +10,6 @@ void Game::gameOver(){
 
 int main(){
     Game* game = Game::instance();
-    game->printMsg("hello.....");
-    delete game;
-
+    game->enterFirstLevel();
     return 0;
 }

@@ -29,7 +29,7 @@ public:
         Player* getPlayer(){return player;}
         bool passedEvent(int id){return (find(passedEvents.begin(), passedEvents.end(), id) != passedEvents.end());}
         void addPassedEvent(int id){passedEvents.push_back(id);}
-        void enterFirstLevel(){/*startingLevel->enter();*/}
+        void enterFirstLevel(){startingLevel->enter();}
 private:
         Player* player;
         //if an event is passed, its index will be saved in passedEvents

@@ -7,8 +7,8 @@
 
 using namespace std;
 
-Level::Level(char* _name, vector<LevelObject>* _levelObjects, vector<Event>* _events, Condition* _levelCondition)
-:name(_name), levelObjects(_levelObjects), events(_events), levelCondition(_levelCondition)
+Level::Level(char* _name, vector<LevelObject>* _levelObjects, vector<Event*>* _events, Condition* _levelCondition)
+:name(_name), levelObjects(_levelObjects), events(_events), levelCondition(_levelCondition), neighbourLevels(new vector<Level>{})
 {}
 
 bool Level::accessible(string& msg){
@@ -21,29 +21,41 @@ void Level::enter(){
     game->getPlayer()->setCurrentLevel(this);
 
     //first check if there are events to be triggered
-    for(Event& evt : *events){
-        evt.trigger();
+    if(!events->empty()){
+        for(Event* evt : *events){
+            evt->trigger();
+        }
     }
+
 
     //then list all LevelObjects
-    ostringstream ss;
-    for(int i=0;i<levelObjects->size();i++){
-        ss << i << ": " << Level::levelObjects->at(i).getName() << endl;
-    }
-    string str = ss.str();
+    if(!levelObjects->empty()){
+        ostringstream ss;
+        for(int i=0;i<levelObjects->size();i++){
+            ss << i << ": " << Level::levelObjects->at(i).getName() << endl;
+        }
+        string str = ss.str();
 
-    int choice = game->printChoice(str);
-    LevelObject& lvlObj = Level::levelObjects->at(choice);
-    lvlObj.startDialog();
+        int choice = game->printChoice(str);
+        LevelObject& lvlObj = Level::levelObjects->at(choice);
+        lvlObj.startDialog();
+    }else{
+        game->printMsg("There are no objects in this level...");
+    }
 
     //finally list neighbours
-    ss.clear();
-    ss << "Choose where to go:" << endl;
-    for(int i=0;i<Level::getNeighbourLevels()->size();i++){
-        ss << i << ": " << Level::levelObjects->at(i).getName() << endl;
+    if(!neighbourLevels->empty()){
+        ostringstream ss;
+        ss.clear();
+        ss << "Choose where to go:" << endl;
+        for(int i=0;i<neighbourLevels->size();i++){
+            ss << i << ": " << neighbourLevels->at(i).getName() << endl;
+        }
+        string str = ss.str();
+        int choice = game->printChoice(str);
+        Level& lvl = Level::getNeighbourLevels()->at(choice);
+        lvl.enter();
+    }else{
+        game->printMsg("You can go nowhere...");
     }
-    str = ss.str();
-    choice = game->printChoice(str);
-    Level& lvl = Level::getNeighbourLevels()->at(choice);
-    lvl.enter();
 }
