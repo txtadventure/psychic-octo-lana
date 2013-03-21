@@ -1,5 +1,6 @@
 #include "Level.h"
 #include <sstream>
+#include <vector>
 
 #include "Game.h"
 #include "Tools.h"
@@ -19,7 +20,7 @@ void Level::enter(){
     Game* game = Game::instance();
     //set new current level of player
     game->getPlayer()->setCurrentLevel(this);
-
+    game->printStatusBar();
     //first check if there are events to be triggered
     if(!events->empty()){
         for(Event* evt : *events){
@@ -28,15 +29,14 @@ void Level::enter(){
     }
 
 
-    //then list all LevelObjects
+    //give the player a choice of levelObjects to interact with
     if(!levelObjects->empty()){
-        ostringstream ss;
+        vector<string> levelObjs;
         for(int i=0;i<levelObjects->size();i++){
-            ss << i << ": " << Level::levelObjects->at(i).getName() << endl;
+            levelObjs.push_back(levelObjects->at(i).getName());
         }
-        string str = ss.str();
 
-        int choice = game->printChoice(str);
+        int choice = game->printChoice("Choose an object to interact with:", levelObjs);
         LevelObject& lvlObj = Level::levelObjects->at(choice);
         lvlObj.startDialog();
     }else{
@@ -45,14 +45,11 @@ void Level::enter(){
 
     //finally list neighbours
     if(!neighbourLevels->empty()){
-        ostringstream ss;
-        ss.clear();
-        ss << "Choose where to go:" << endl;
+        vector<string> neighLvls;
         for(int i=0;i<neighbourLevels->size();i++){
-            ss << i << ": " << neighbourLevels->at(i).getName() << endl;
+            neighLvls.push_back(neighbourLevels->at(i).getName());
         }
-        string str = ss.str();
-        int choice = game->printChoice(str);
+        int choice = game->printChoice("Go to:", neighLvls);
         Level& lvl = Level::getNeighbourLevels()->at(choice);
         lvl.enter();
     }else{

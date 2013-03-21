@@ -37,6 +37,7 @@
 		<Unit filename="include/Condition.h" />
 		<Unit filename="include/Dialog.h" />
 		<Unit filename="include/Event.h" />
+		<Unit filename="include/EventFactory.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/ItemFactory.h" />
@@ -48,6 +49,7 @@
 		<Unit filename="src/Condition.cpp" />
 		<Unit filename="src/Dialog.cpp" />
 		<Unit filename="src/Event.cpp" />
+		<Unit filename="src/EventFactory.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/ItemFactory.cpp" />
