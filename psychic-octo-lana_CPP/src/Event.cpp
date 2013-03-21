@@ -10,7 +10,7 @@ bool Event::trigger(){
             game->addPassedEvent(eventID);
             return true;
         }else{
-            game->printMsg(msg);
+            Tools::printMsg(msg);
             return false;
         }
     }else{

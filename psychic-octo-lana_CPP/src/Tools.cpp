@@ -5,21 +5,21 @@
 #include "Level.h"
 #include "Item.h"
 #include "Player.h"
-
-#include "Player.h"
+#include "Game.h"
 
 using namespace std;
 
 const char* Tools::HOR_BAR = "-------------------------------------------------------------------------------";
 
-void Tools::printMsg(const string& msg, const Player* p){
+void Tools::printMsg(const string& msg){
     printMsgSlow(msg);
     cout << endl;
 }
 
 
 //we don't print the status bar again until a variable changed in that bar
-void Tools::printStatusBar(const Player* p){
+void Tools::printStatusBar(){
+    Player* p = Game::instance()->getPlayer();
         //Status bar
     cout << HOR_BAR << endl;
     cout << "Level: " << p->getCurrentLevel()->getName() << "\t\t";
@@ -34,7 +34,7 @@ void Tools::printStatusBar(const Player* p){
     cout << HOR_BAR << endl;
 }
 
-int Tools::printChoice(const string& msg, const vector<string>& choices, const Player* p){
+int Tools::printChoice(const string& msg, const vector<string>& choices){
     printMsgSlow(msg);
     cout << endl;
     for(int i=0;i<choices.size();i++){
@@ -48,11 +48,11 @@ int Tools::printChoice(const string& msg, const vector<string>& choices, const P
     cout << endl;
     if(input >= choices.size() || input < 0){
         printMsgSlow("Choice not supported. Please choose again.");
-        input = printChoice(msg, choices, p);
+        input = printChoice(msg, choices);
     }
     return input;
 }
-string Tools::printInput(const string& msg, const Player* p){
+string Tools::printInput(const string& msg){
     printMsgSlow(msg);
     cout << endl;
     cout << "input: ";
@@ -61,7 +61,7 @@ string Tools::printInput(const string& msg, const Player* p){
     cout << endl;
     return input;
 }
-bool Tools::printQuestion(const string& msg, const Player* p){
+bool Tools::printQuestion(const string& msg){
     bool answer;
     printMsgSlow(msg);
     cout << endl;
@@ -71,7 +71,7 @@ bool Tools::printQuestion(const string& msg, const Player* p){
     cout << endl;
     if(input != 'y' && input != 'n'){
         printMsgSlow("Invalid answer. Try again.");
-        answer = printQuestion(msg, p);
+        answer = printQuestion(msg);
     }else{
         answer = input == 'y';
     }
@@ -88,6 +88,19 @@ void Tools::printMsgSlow(const string& msg){
 
 void Tools::printMsgInstant(const string& msg){
     cout << msg << endl;
+}
+
+void Tools::gameOver(){
+    printMsgSlow(
+string("   _____                                 ____ ")+
+"  / ____|                               / __ \                       "+
+" | |  __    __ _   _ __ ___     ___    | |  | | __   __   ___   _ __ "+
+" | | |_ |  / _` | | '_ ` _ \   / _ \   | |  | | \ \ / /  / _ \ | '__|"+
+" | |__| | | (_| | | | | | | | |  __/   | |__| |  \ V /  |  __/ | |   "+
+"  \_____|  \__,_| |_| |_| |_|  \___|    \____/    \_/    \___| |_|   "
+);
+
+    printQuestion("Try again?");
 }
 
 string Tools::toString ( int number )

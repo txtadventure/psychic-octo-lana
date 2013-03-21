@@ -20,7 +20,7 @@ void Level::enter(){
     Game* game = Game::instance();
     //set new current level of player
     game->getPlayer()->setCurrentLevel(this);
-    game->printStatusBar();
+    Tools::printStatusBar();
     //first check if there are events to be triggered
     if(!events->empty()){
         for(Event* evt : *events){
@@ -36,11 +36,11 @@ void Level::enter(){
             levelObjs.push_back(levelObjects->at(i).getName());
         }
 
-        int choice = game->printChoice("Choose an object to interact with:", levelObjs);
+        int choice = Tools::printChoice("Choose an object to interact with:", levelObjs);
         LevelObject& lvlObj = Level::levelObjects->at(choice);
         lvlObj.startDialog();
     }else{
-        game->printMsg("There are no objects in this level...");
+        Tools::printMsg("There are no objects in this level...");
     }
 
     //finally list neighbours
@@ -49,10 +49,10 @@ void Level::enter(){
         for(int i=0;i<neighbourLevels->size();i++){
             neighLvls.push_back(neighbourLevels->at(i).getName());
         }
-        int choice = game->printChoice("Go to:", neighLvls);
+        int choice = Tools::printChoice("Go to:", neighLvls);
         Level& lvl = Level::getNeighbourLevels()->at(choice);
         lvl.enter();
     }else{
-        game->printMsg("You can go nowhere...");
+        Tools::printMsg("You can go nowhere...");
     }
 }
