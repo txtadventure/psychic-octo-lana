@@ -18,10 +18,14 @@ class Tools
         static bool printQuestion(const string& msg);
         static string toString ( int number );
         static void gameOver();
+        static void titleScreen();
     private:
-        static const int CHAR_TIME = 5;
+        static const int CHAR_TIME_FAST = 5;
+        static const int CHAR_TIME_SLOW = 30;
+        static void printMsgFast(const string& msg);
         static void printMsgSlow(const string& msg);
         static void printMsgInstant(const string& msg);
+        static void printMsgSpeed(const string& msg, int speed);
 };
 
 #endif // TOOLS_H

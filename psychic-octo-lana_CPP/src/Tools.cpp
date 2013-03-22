@@ -14,7 +14,7 @@ using namespace std;
 const char* Tools::HOR_BAR = "-------------------------------------------------------------------------------";
 
 void Tools::printMsg(const string& msg){
-    printMsgSlow(msg);
+    printMsgFast(msg);
     cout << endl;
 }
 
@@ -30,14 +30,17 @@ void Tools::printStatusBar(){
     cout << HOR_BAR << endl;
 
     //collected items
-    cout << "Item1: " << p->getItem1()->getName() << "\t\t";
-    cout << "Item2: " << p->getItem1()->getName() << "\t\t";
-    cout << "Item3: " << p->getItem1()->getName() << "\t\t" << endl;
+    if(p->getItem1() == NULL){cout << "Item1: empty\t\t";}
+    else cout << "Item1: " << p->getItem1()->getName() << "\t\t";
+    if(p->getItem2() == NULL){cout << "Item2: empty\t\t";}
+    else cout << "Item2: " << p->getItem1()->getName() << "\t\t";
+    if(p->getItem3() == NULL){cout << "Item3: empty\t\t\n";}
+    else cout << "Item3: " << p->getItem1()->getName() << "\t" << endl;
     cout << HOR_BAR << endl;
 }
 
 int Tools::printChoice(const string& msg, const vector<string>& choices){
-    printMsgSlow(msg);
+    printMsgFast(msg);
     cout << endl;
     for(int i=0;i<choices.size();i++){
         cout << '\t';
@@ -49,13 +52,13 @@ int Tools::printChoice(const string& msg, const vector<string>& choices){
     cin >> input;
     cout << endl;
     if(input >= choices.size() || input < 0){
-        printMsgSlow("Choice not supported. Please choose again.");
+        printMsgFast("Choice not supported. Please choose again.");
         input = printChoice(msg, choices);
     }
     return input;
 }
 string Tools::printInput(const string& msg){
-    printMsgSlow(msg);
+    printMsgFast(msg);
     cout << endl;
     cout << "input: ";
     string input;
@@ -65,14 +68,14 @@ string Tools::printInput(const string& msg){
 }
 bool Tools::printQuestion(const string& msg){
     bool answer;
-    printMsgSlow(msg);
+    printMsgFast(msg);
     cout << endl;
     cout << "(y/n): ";
     char input;
     cin >> input;
     cout << endl;
     if(input != 'y' && input != 'n'){
-        printMsgSlow("Invalid answer. Try again.");
+        printMsgFast("Invalid answer. Try again.");
         answer = printQuestion(msg);
     }else{
         answer = input == 'y';
@@ -80,10 +83,18 @@ bool Tools::printQuestion(const string& msg){
     return answer;
 }
 
+void Tools::printMsgFast(const string& msg){
+    printMsgSpeed(msg, CHAR_TIME_FAST);
+}
+
 void Tools::printMsgSlow(const string& msg){
+    printMsgSpeed(msg, CHAR_TIME_SLOW);
+}
+
+void Tools::printMsgSpeed(const string& msg, int speed){
     for(int i=0;i<msg.length();i++){
         cout << msg.at(i);
-        Sleep(CHAR_TIME);
+        Sleep(speed);
     }
     cout << endl;
 }
@@ -107,6 +118,23 @@ void Tools::gameOver(){
     }else{
         exit (EXIT_SUCCESS);
     }
+}
+
+void Tools::titleScreen(){
+printMsgSlow("\t\t\t         ___^___");
+printMsgSlow("\t\t\t        / O    O\\");
+printMsgSlow("\t\t\t        \\_    __/       ______");
+printMsgSlow("\t\t\t          |   |        / -o-o-o()");
+printMsgSlow("\t\t\t     _____|   |_______/ /");
+printMsgSlow("\t\t\t    / -o-o| 0 |o--o-o- /");
+printMsgSlow("\t\t\t   / /   // ||\\\\            PSYCHIC-");
+printMsgSlow("\t\t\t  / /   (( // ||");
+printMsgSlow("\t\t\t  ||     \\\\))  \\\\           OCTO-");
+printMsgSlow("\t\t\t  ||    //||    ))");
+printMsgSlow("\t\t\t  ()    ( ))   //           LANA");
+printMsgSlow("\t\t\t        //   ((");
+
+cout << "\n\n\n";
 }
 
 string Tools::toString ( int number )

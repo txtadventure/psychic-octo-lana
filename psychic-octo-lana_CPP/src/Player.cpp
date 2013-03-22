@@ -3,15 +3,8 @@
 #include "LevelFactory.h"
 #include "Game.h"
 
-Player::Player()
-{
-    hp = 100;
-    money = 0;
-    //instancing default item with index 0?
-    item1 = new Item(0, "empty");
-    item2 = new Item(0, "empty");
-    item3 = new Item(0, "empty");
-}
+Player::Player():hp(100),money(0),item1(0),item2(0),item3(0)
+{}
 
 Player::~Player()
 {
