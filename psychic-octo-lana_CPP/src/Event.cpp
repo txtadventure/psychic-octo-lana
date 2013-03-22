@@ -1,6 +1,11 @@
 #include "Event.h"
 #include "Game.h"
 
+Event::~Event(){
+    delete condition;
+    delete dialog;
+}
+
 bool Event::trigger(){
     string msg;
     Game* game = Game::instance();

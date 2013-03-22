@@ -5,13 +5,19 @@
 
 Player::Player()
 {
-    currentLevel = LevelFactory::buildLevel1();
     hp = 100;
     money = 0;
     //instancing default item with index 0?
     item1 = new Item(0, "empty");
     item2 = new Item(0, "empty");
     item3 = new Item(0, "empty");
+}
+
+Player::~Player()
+{
+    delete item1;
+    delete item2;
+    delete item3;
 }
 
 void Player::addItem(Item* item){

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <windows.h>
 #include <sstream>
+#include <stdlib.h>
+
 #include "Level.h"
 #include "Item.h"
 #include "Player.h"
@@ -91,16 +93,20 @@ void Tools::printMsgInstant(const string& msg){
 }
 
 void Tools::gameOver(){
-    printMsgSlow(
-string("   _____                                 ____ ")+
-"  / ____|                               / __ \                       "+
-" | |  __    __ _   _ __ ___     ___    | |  | | __   __   ___   _ __ "+
-" | | |_ |  / _` | | '_ ` _ \   / _ \   | |  | | \ \ / /  / _ \ | '__|"+
-" | |__| | | (_| | | | | | | | |  __/   | |__| |  \ V /  |  __/ | |   "+
-"  \_____|  \__,_| |_| |_| |_|  \___|    \____/    \_/    \___| |_|   "
-);
+    printMsgSlow("   _____                                 ____ ");
+    printMsgSlow("  / ____|                               / __ \\                       ");
+    printMsgSlow(" | |  __    __ _   _ __ ___     ___    | |  | | __   __   ___   _ __ ");
+    printMsgSlow(" | | |_ |  / _` | | '_ ` _ \\   / _ \\   | |  | | \\ \\ / /  / _ \\ | '__|");
+    printMsgSlow(" | |__| | | (_| | | | | | | | |  __/   | |__| |  \\   /  |  __/ | |   ");
+    printMsgSlow("  \\_____|  \\__,_| |_| |_| |_|  \\___|    \\____/    \\_/    \\___| |_|   ");
 
-    printQuestion("Try again?");
+    cout << endl;
+    bool again = printQuestion("Try again?");
+    if(again){
+        Game::restartGame();
+    }else{
+        exit (EXIT_SUCCESS);
+    }
 }
 
 string Tools::toString ( int number )

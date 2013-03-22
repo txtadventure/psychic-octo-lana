@@ -5,11 +5,16 @@
 #include "Level.h"
 #include "Condition.h"
 #include "EventFactory.h"
+#include "LevelObjectFactory.h"
 
 using namespace std;
 
 Level* LevelFactory::buildLevel1(){
-    Level* level1 = new Level("FMI Building", new vector<LevelObject>{},
+    Level* level1 = new Level("FMI Building", new vector<LevelObject*>{
+                                LevelObjectFactory::produceLvlObj(LevelObjectFactory::OBJ1),
+                              LevelObjectFactory::produceLvlObj(LevelObjectFactory::OBJ1),
+                              LevelObjectFactory::produceLvlObj(LevelObjectFactory::OBJ1)
+                              },
                             new vector<Event*>{
                                 EventFactory::produceEvent(EventFactory::EVENT1)
                             },

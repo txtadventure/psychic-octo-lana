@@ -44,6 +44,7 @@
 		<Unit filename="include/Level.h" />
 		<Unit filename="include/LevelFactory.h" />
 		<Unit filename="include/LevelObject.h" />
+		<Unit filename="include/LevelObjectFactory.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Tools.h" />
 		<Unit filename="src/Condition.cpp" />
@@ -56,6 +57,7 @@
 		<Unit filename="src/Level.cpp" />
 		<Unit filename="src/LevelFactory.cpp" />
 		<Unit filename="src/LevelObject.cpp" />
+		<Unit filename="src/LevelObjectFactory.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Tools.cpp" />
 		<Extensions>

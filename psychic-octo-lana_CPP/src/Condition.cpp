@@ -7,6 +7,11 @@ Condition::Condition(vector<int>* _requiredItems, vector<int>* _requiredEvents, 
 requiredItems(_requiredItems), requiredEvents(_requiredEvents), requiredMoney(_requiredMoney), requiredHP(_requiredHP)
 {}
 
+Condition::~Condition(){
+    delete requiredItems;
+    delete requiredEvents;
+}
+
 bool Condition::access(string& cndMsg){
     Game* game = Game::instance();
     Player* player = game->getPlayer();

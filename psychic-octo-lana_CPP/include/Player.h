@@ -10,6 +10,7 @@ class Player
     public:
         static const int maxHP = 100;
         Player();
+        ~Player();
         void addItem(Item* item1);
         void removeItem(int itemID);
         Level* getCurrentLevel() const {return currentLevel;}

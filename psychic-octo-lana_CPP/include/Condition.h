@@ -10,6 +10,7 @@ class Condition
 {
     public:
         Condition(vector<int>* _requiredItems, vector<int>* _requiredEvents, int _requiredMoney, int _requiredHP);
+        ~Condition();
         bool access(string& cndMsg);
     private:
         vector<int>* requiredItems;

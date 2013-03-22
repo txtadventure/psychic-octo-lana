@@ -16,7 +16,6 @@ class Game
 public:
         static Game* instance ()
         {
-            static CGuard g;   // memory management
             if (!_instance)
                 _instance = new Game ();
             return _instance;
@@ -25,6 +24,17 @@ public:
         bool passedEvent(int id){return (find(passedEvents.begin(), passedEvents.end(), id) != passedEvents.end());}
         void addPassedEvent(int id){passedEvents.push_back(id);}
         void enterFirstLevel(){startingLevel->enter();}
+
+        static void startGame(){
+            Game* inst = instance();
+            inst->enterFirstLevel();
+        }
+        static void restartGame(){
+            if(_instance != NULL){
+                _instance = NULL;
+            }
+            startGame();
+        }
 private:
         Player* player;
         //if an event is passed, its index will be saved in passedEvents
@@ -32,22 +42,12 @@ private:
         Level* startingLevel;
         //initialize game
         Game():player(new Player()), startingLevel(LevelFactory::buildLevel1())
-        {};
+        {}
+        ~Game(){
+            delete player;
+            delete startingLevel;
+        }
         static Game* _instance;
-
-        class CGuard
-        {
-            public:
-                ~CGuard()
-                {
-                    if( NULL != Game::_instance )
-                    {
-                        delete Game::_instance;
-                        Game::_instance = NULL;
-                    }
-                }
-        };
-        friend class CGuard;
 };
 
 #endif // GAME_H

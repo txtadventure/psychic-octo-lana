@@ -8,6 +8,7 @@ class Event
 {
     public:
         Event(int _eventID):eventID(_eventID){}
+        ~Event();
         bool trigger();
 
         void setCondition(Condition* cond){condition = cond;}
